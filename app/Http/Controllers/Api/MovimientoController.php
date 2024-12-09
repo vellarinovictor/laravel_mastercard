@@ -91,17 +91,33 @@ class MovimientoController extends Controller
     }
 
     public function obtenerMovimientosTarjeta($numtarjeta) {
+        $datos = [];
         $cliente = auth()->user();
-        if (!$cliente) return response()->json(['error'=>"Autenticate"],403);ç
+        if (!$cliente) return response()->json(['error'=>"Autenticate"],403);
         $tarjeta = Tarjeta::where("numero",$numtarjeta)->get()->first();
         if (!($tarjeta)) return response()->json(['error'=>"La tarjeta no existe"],404);
-        if (!$cliente->tarjetas.contains($tarjeta)) return response()->json(['error'=>"El tarjeta no es de esta cuenta"],404);
+        $tarjetas = $cliente->tarjetas;
+        foreach ($tarjetas as $tarjetaaux) {
+            if ($tarjetaaux->id == $tarjeta->id) {
+                foreach ($tarjetaaux->movimientos as $movimiento) {
+                            $datos[] = $movimiento;
+                }
+                return response()->json($datos);
+            } else return response()->json(['error'=>"La tarjeta no es de esta cuenta"],403);
 
+        }
+        return response()->json(['error'=>"No entra en la condicion"],404);
     }
 
     public function obtenerMovimientosCliente() {
         $cliente = auth()->user();
         if (!$cliente) return response()->json(['error'=>"Autenticate"],403);
-
+        $datos = [];
+        $tarjetas = $cliente->tarjetas;
+        foreach ($tarjetas as $tarjeta){
+            $tarjeta->movimientos; //cargamos los movimientos para que al devolver la tarjeta devulva automaticamente estos
+            $datos[] = $tarjeta;
+        }
+        return response()->json(['datos'=>$datos]);
     }
 }

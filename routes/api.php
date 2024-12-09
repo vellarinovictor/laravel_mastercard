@@ -77,6 +77,6 @@ Route::middleware("auth:sanctum")->get("/pediralgo", function (){
                 return "hola";
             } else {
                 return "adios";
-            };
+            }
 
     });
