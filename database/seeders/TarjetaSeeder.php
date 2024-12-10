@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tarjeta;
+use App\Models\Models\Tarjeta;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class TarjetaSeeder extends Seeder
 {
@@ -27,6 +26,6 @@ class TarjetaSeeder extends Seeder
                     'fechavalidez' => $faker->creditCardExpirationDateString(true),
                ]);
             }
-        }        
+        }
     }
 }

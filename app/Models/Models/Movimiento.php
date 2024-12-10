@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Movimiento extends Model
 {
+    use \Znck\Eloquent\Traits\BelongsToThrough;
     use HasFactory;
 
     protected $fillable = ['fecha', 'cantidad', 'tarjeta_id'];
@@ -23,5 +24,5 @@ class Movimiento extends Model
     // Esta funcion la he creado para coger directamente al cliente que hace el movimiento
     public function Cliente() {
         return $this->cuenta->cliente()->get()->first();
-    }    
+    }
 }

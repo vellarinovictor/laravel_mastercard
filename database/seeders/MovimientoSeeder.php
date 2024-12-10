@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Movimiento;
+use App\Models\Models\Movimiento;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class MovimientoSeeder extends Seeder

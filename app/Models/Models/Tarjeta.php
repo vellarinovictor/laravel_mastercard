@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Models;
 
 use DateTime;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Tarjeta extends Model
 {

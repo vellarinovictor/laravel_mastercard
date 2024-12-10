@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Cuenta;
-use App\Models\Tarjeta;
-use App\Models\Movimiento;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Models\Cuenta;
+use App\Models\Models\Movimiento;
+use App\Models\Models\Tarjeta;
 
 class MovimientoController extends Controller
 {

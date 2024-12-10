@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cuenta;
+use App\Models\Models\Cuenta;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CuentaSeeder extends Seeder
 {

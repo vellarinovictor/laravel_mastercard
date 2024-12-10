@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ExamenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -58,7 +59,17 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get("/tarjetas/{tarjeta}/movimientos", [MovimientoController::class, "obtenerMovimientosTarjeta"]);
 //obtenerMovimientosCliente
     Route::get("/movimientos", [MovimientoController::class, "obtenerMovimientosCliente"]);
+
+//RUTAS EXAMEN
+
+//listar cuentas y saldo
+    Route::get("/cuentas/saldo", [ExamenController::class, "listarCuentas"]);
+//mayores retiradas de dinero
+    Route::get("/movimientos/top", [ExamenController::class, "mayoresRetiradas"]);
+//borrar cuenta
+    Route::get("/cuentas/{cuenta}", [ExamenController::class, "borrarCuenta"]);
 });
+
 
 
 

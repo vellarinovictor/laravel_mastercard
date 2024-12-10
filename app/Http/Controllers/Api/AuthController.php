@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
-use App\Models\Tarjeta;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Models\Tarjeta;
+use App\Models\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -100,7 +100,7 @@ class AuthController extends Controller
                 'message' => $th->getMessage()
             ], 500);
         }
-    }    
+    }
 
 
 
@@ -125,7 +125,7 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            $tarjeta = Tarjeta::where("numero", $numerotarjeta )->where("pin",$pin)->get()->first();            
+            $tarjeta = Tarjeta::where("numero", $numerotarjeta )->where("pin",$pin)->get()->first();
             if (!$tarjeta) {
                 return response()->json([
                     'status' => false,
@@ -147,5 +147,5 @@ class AuthController extends Controller
                 'message' => $th->getMessage()
             ], 500);
         }
-    }    
+    }
 }
